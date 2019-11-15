@@ -1,0 +1,17 @@
+<h2 mat-dialog-title>Add new hot-dog</h2>
+<div mat-dialog-content>
+  <form target="_blank">
+    <input class="w3-input w3-border" type="text" placeholder="Name" required name="Name" [(ngModel)]="hotdog.name">
+    <input class="w3-input w3-section w3-border" type="text" placeholder="Price" required name="Title" [(ngModel)]="hotdog.title">
+    <input class="w3-input w3-section w3-border" type="text" placeholder="Description" required name="Description" [(ngModel)]="hotdog.description">
+    <input class="w3-input w3-section w3-border" type="file" placeholder="Image" id="myForm"
+           required name="Image" (change)="fileChange($event)" >
+
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button class="w3-button w3-black w3-section" type="submit" (click)="onNoClick()">No Thanks</button> <br>
+  <button class="w3-button w3-black w3-section" type="submit" cdkFocusInitial (click)="update(hotdog)" >
+    <i class="fa fa-paper-plane"></i> Add
+  </button>
+</div>

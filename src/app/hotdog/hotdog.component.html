@@ -1,0 +1,23 @@
+<!-- Page content -->
+<div class="w3-content w3-padding" style="max-width:1564px">
+
+  <!-- Project Section -->
+  <div class="w3-container w3-padding-32" >
+    <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">All hot-dogs</h3>
+    <div class="w3-row-padding ">
+      <div class="w3-col l3 m6 w3-margin-bottom" *ngFor="let hotdog of hotdogs">
+        <img src="https://storage.googleapis.com/crud-249315.appspot.com/{{hotdog.image}}" alt="#name" style="width:100%">
+        <input  class="w3-input w3-border" type="text" placeholder="Image Name" [(ngModel)]="hotdog.image" *ngIf="hotdog.showEdit">
+        <h3 *ngIf="!hotdog.showEdit">{{hotdog.name}}</h3>
+        <input  class="w3-input w3-border" type="text" placeholder="Name" [(ngModel)]="hotdog.name" *ngIf="hotdog.showEdit">
+        <p class="w3-opacity" *ngIf="!hotdog.showEdit">{{hotdog.title+"$"}}</p>
+        <input class="w3-input w3-border" type="text" placeholder="Title" [(ngModel)]="hotdog.title" *ngIf="hotdog.showEdit">
+        <p scroll="auto" *ngIf="!hotdog.showEdit">{{hotdog.description}}</p>
+        <textarea rows="6" class="w3-input w3-border" type="text" placeholder="Description" [(ngModel)]="hotdog.description" *ngIf="hotdog.showEdit"> </textarea>
+        <p><button class="w3-button w3-light-grey w3-block"  (click)="editHotdog(hotdog)" >{{hotdog.showEdit?'Upgrate':'Edit'}}</button></p>
+        <p><button class="w3-button w3-light-grey w3-block"  *ngIf="hotdog.showEdit" (click)="deleteItem(hotdog.id)">Delete</button></p>
+      </div>
+    </div>
+
+  </div>
+</div>
